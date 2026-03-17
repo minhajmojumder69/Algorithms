@@ -5,7 +5,7 @@ int main()
     int n,e;
     cin >> n >> e;
     int adj_mat [n][n];
-    memset(adj_mat,0,sizeof(adj_mat));
+    memset(adj_mat,0,sizeof(adj_mat));  
 
     for (int i = 0; i < n; i++)
     {

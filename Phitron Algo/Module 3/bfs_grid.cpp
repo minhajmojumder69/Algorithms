@@ -15,19 +15,31 @@ bool valid(int i, int j)
     return true;
 }
 
-void dfs(int si, int sj)
+void bfs(int si, int sj)
 {
-    cout << si << " " << sj << endl;
+    queue<pair<int, int>> q;
+    q.push({si, sj});
     visited[si][sj] = true;
-
-    for (int i = 0; i < 4; i++)
+    while (!q.empty())
     {
-        int ci, cj;
-        ci = si + op[i].first;
-        cj = sj + op[i].second;
-        if (valid(ci, cj) && !visited[ci][cj])
+        pair<int, int> parent = q.front();
+        q.pop();
+        int parent_i = parent.first;
+        int parent_j = parent.second;
+
+        cout << parent_i << " " << parent_j << endl;
+
+        for (int i = 0; i < 4; i++)
         {
-            dfs(ci, cj);
+            int ci, cj;
+            ci = parent_i + op[i].first;
+            cj = parent_j + op[i].second;
+
+            if (valid(ci, cj) && !visited[ci][cj])
+            {
+                q.push({ci, cj});
+                visited[ci][cj] = true;
+            }
         }
     }
 }
@@ -47,7 +59,7 @@ int main()
     int si, sj;
     cin >> si >> sj;
     memset(visited, false, sizeof(visited));
-    dfs(si, sj);
+    bfs(si, sj);
 
     return 0;
 }

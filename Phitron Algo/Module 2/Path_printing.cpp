@@ -2,12 +2,14 @@
 using namespace std;
 vector<int> adj_list[10005];
 bool visited[10005];
-
+int level[10005];
+int parent[10005];
 void bfs(int src)
 {
     queue<int> q;
     q.push(src);
     visited[src] = true;
+    level[src] = 0;
 
     while (!q.empty())
     {
@@ -20,6 +22,8 @@ void bfs(int src)
             {
                 q.push(child);
                 visited[child] = true;
+                level[child] = level[par]+1;
+                parent[child] = par;
             }
         }
     }
@@ -36,17 +40,26 @@ int main()
         adj_list[b].push_back(a);
     }
     memset(visited, false, sizeof(visited));
+    memset(level,-1, sizeof(level));
+    memset(parent,-1, sizeof(parent));
+
     int src,dst;
     cin >> src >> dst;
-    bfs(0);
-    if (visited[dst])
+    bfs(src);
+
+    vector<int> path;
+    int node = dst;
+    while (node != -1)
     {
-        cout << "YES\n";
+        path.push_back(node);
+        node = parent[node];
     }
-    else
+    reverse(path.begin(),path.end());
+    for (int x : path)
     {
-        cout << "NO\n";
+        cout << x << " ";
     }
+    
 
     return 0;
 }

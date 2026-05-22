@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-char grid[105][1005];
+char grid[1005][1005];
 bool visited[1005][1005];
 pair<int, int> parent[1005][1005];
-// int level[1005];
+
 int n, m;
 
 vector<pair<int, int>> op = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
@@ -23,7 +23,7 @@ void bfs(int si, int sj, int tri, int trj)
     queue<pair<int, int>> q;
     q.push({si, sj});
     visited[si][sj] = true;
-    // level[src] = 0;
+    
 
     while (!q.empty())
     {
@@ -72,10 +72,10 @@ int main()
     }
 
     memset(visited, false, sizeof(visited));
-    // memset(level,-1, sizeof(level));
+    
 
     bfs(sni, snj, tri, trj);
-    // cout << level[dst] << endl;
+    
 
     if (tri != -1 && trj != -1 && visited[tri][trj])
     {

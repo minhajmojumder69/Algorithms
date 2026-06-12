@@ -28,7 +28,7 @@ int main()
 
   for (int i = 0; i < n; i++)
   {
-    dis[i] = INT_MAX;
+    dis[i] = LONG_MAX;
   }
 
   dis[0] = 0;
@@ -41,7 +41,7 @@ int main()
       a = ed.a;
       b = ed.b;
       c = ed.c;
-      if (dis[a] != INT_MAX && dis[a] + c < dis[b])
+      if (dis[a] != LONG_MAX && dis[a] + c < dis[b])
       {
         dis[b] = dis[a] + c;
       }
@@ -51,6 +51,6 @@ int main()
   {
     cout << i << " -> " << dis[i] << endl;
   }
-  
+
   return 0;
 }

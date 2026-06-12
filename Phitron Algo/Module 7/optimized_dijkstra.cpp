@@ -45,7 +45,7 @@ int main()
     }
     for (int i = 0; i < n; i++)
     {
-        dis[i] = INT_MAX;
+        dis[i] = LONG_MAX;
     }
     
     dijkstra(0);

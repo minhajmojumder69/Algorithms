@@ -1,0 +1,1 @@
+{"name":"Local: Knapsack","url":"d:\\Varsity\\CODING (Algo)\\Algorithms\\Phitron Algo\\Module 15\\Knapsack.cpp","tests":[{"id":1781766612245,"input":"4\n20 30 40 70\n70 80 90 200\n60","output":"17"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Varsity\\CODING (Algo)\\Algorithms\\Phitron Algo\\Module 15\\Knapsack.cpp","group":"local","local":true}
